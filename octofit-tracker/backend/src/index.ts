@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import './config/database';
 import usersRouter from './routes/users';
 import activitiesRouter from './routes/activities';
