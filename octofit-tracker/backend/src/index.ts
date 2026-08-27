@@ -2,9 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import './config/database';
 import usersRouter from './routes/users';
+import teamsRouter from './routes/teams';
 import activitiesRouter from './routes/activities';
-
-dotenv.config();
+import leaderboardRouter from './routes/leaderboard';
+import workoutsRouter from './routes/workouts';
 
 const app = express();
 const port = 8000;
@@ -23,7 +24,10 @@ app.get('/', (_req, res) => {
 });
 
 app.use('/api/users', usersRouter);
+app.use('/api/teams', teamsRouter);
 app.use('/api/activities', activitiesRouter);
+app.use('/api/leaderboard', leaderboardRouter);
+app.use('/api/workouts', workoutsRouter);
 
 app.listen(port, () => {
   console.log(`OctoFit Tracker API running at ${baseUrl}`);
