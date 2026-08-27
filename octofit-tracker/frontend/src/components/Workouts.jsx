@@ -1,5 +1,6 @@
 import { useApiData } from '../hooks/useApiData';
 
+// Endpoint: https://${CODESPACE_NAME}-8000.app.github.dev/api/workouts
 function Workouts() {
   const { items: workouts, loading, error } = useApiData('workouts');
 
