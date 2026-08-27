@@ -7,20 +7,19 @@ import activitiesRouter from './routes/activities';
 import leaderboardRouter from './routes/leaderboard';
 import workoutsRouter from './routes/workouts';
 
-const app = express();
 const port = 8000;
-
-// Codespaces exposes forwarded ports on app.github.dev; fall back to localhost otherwise
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
-  ? `https://${codespaceName}-${port}.app.github.dev`
+  ? `https://${codespaceName}-8000.app.github.dev`
   : `http://localhost:${port}`;
+
+const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 app.get('/', (_req, res) => {
-  res.json({ message: 'OctoFit Tracker API is running', baseUrl });
+  res.json({ message: 'Octofit Tracker API', baseUrl });
 });
 
 app.use('/api/users', usersRouter);
@@ -30,5 +29,7 @@ app.use('/api/leaderboard', leaderboardRouter);
 app.use('/api/workouts', workoutsRouter);
 
 app.listen(port, () => {
-  console.log(`OctoFit Tracker API running at ${baseUrl}`);
+  console.log(`Octofit Tracker API running at ${baseUrl}`);
 });
+
+export { app, baseUrl, port };

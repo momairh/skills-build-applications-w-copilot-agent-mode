@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/', async (_req, res) => {
   try {
-    const users = await User.find().populate('team');
+    const users = await User.find();
     res.json(users);
   } catch (error) {
     res.status(500).json({ error: 'Failed to fetch users' });
