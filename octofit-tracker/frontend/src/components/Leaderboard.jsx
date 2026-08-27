@@ -1,5 +1,6 @@
 import { useApiData } from '../hooks/useApiData';
 
+// Endpoint: https://${CODESPACE_NAME}-8000.app.github.dev/api/leaderboard
 function Leaderboard() {
   const { items: entries, loading, error } = useApiData('leaderboard');
 
