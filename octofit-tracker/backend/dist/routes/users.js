@@ -8,7 +8,7 @@ const User_1 = __importDefault(require("../models/User"));
 const router = (0, express_1.Router)();
 router.get('/', async (_req, res) => {
     try {
-        const users = await User_1.default.find().populate('team');
+        const users = await User_1.default.find();
         res.json(users);
     }
     catch (error) {
